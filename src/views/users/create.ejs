@@ -12,15 +12,18 @@
 </head>
 
 <body>
-    <div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="container position-absolute top-50 start-50 translate-middle">        
+    <div class="header">
+        <h1>Create User</h1>
+    </div>
         <form action="/store-user" method="POST">
             <div class="mb-3">
                 <label for="firstName" class="form-label">First Name</label>
-                <input type="email" class="form-control" id="firstName" name="firstName" placeholder="First Name" autofocus required>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" autofocus required>
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Last Name</label>
-                <input type="email" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>

@@ -1,7 +1,11 @@
-import storeUserService from "../services/storeUserService";
+import userService from "../services/userService";
 
-let getUserPage = async (req, res) => {
+let listUser = async (req, res) => {
+    let data = await userService.listUser();
 
+    return res.render('users/index.ejs', {
+        userData: data
+    });
 }
 
 let createUser = async (req, res) => {
@@ -9,13 +13,47 @@ let createUser = async (req, res) => {
 }
 
 let storeUser = async (req, res) => {
-    let message = await storeUserService.storeUser(req.body);
+    let message = await userService.storeUser(req.body);
     console.log(message);
-    return res.send('store to db');
+    return res.redirect("list-user");
+}
+
+let editUser = async (req, res) => {
+    let userId = req.query.id;
+
+    if (userId) {
+        let userData = await userService.editUser(userId);
+
+        return res.render('users/edit.ejs', {
+            userData: userData
+        });
+    } else {
+        return res.send("404");
+    }
+}
+
+let updateUser = async (req, res) => {
+    let data = req.body;
+    await userService.updateUser(data);
+
+    return res.redirect("list-user");
+}
+
+let deleteUser = async (req, res) => {
+    let userId = req.query.id;
+    if (userId) {
+        await userService.deleteUser(userId);
+        return res.redirect("list-user");
+    } else {
+        return res.redirect("list-user");
+    }
 }
 
 module.exports = {
-    getUserPage: getUserPage,
+    listUser: listUser,
     createUser: createUser,
-    storeUser: storeUser
+    storeUser: storeUser,
+    editUser: editUser,
+    updateUser: updateUser,
+    deleteUser: deleteUser
 }
