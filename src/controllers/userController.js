@@ -27,7 +27,7 @@ let editUser = async (req, res) => {
             userData: userData
         });
     } else {
-        return res.send("404");
+        return res.send('404');
     }
 }
 
