@@ -24,7 +24,7 @@ let storeUser = async (data) => {
                 email: data.email,
                 password: hashUserPassword,
             })
-            resolve('Store user to db successfully!');
+            resolve();
         } catch (e) {
             reject(e);
         }

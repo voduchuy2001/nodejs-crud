@@ -13,8 +13,7 @@ let createUser = async (req, res) => {
 }
 
 let storeUser = async (req, res) => {
-    let message = await userService.storeUser(req.body);
-    console.log(message);
+    await userService.storeUser(req.body);
     return res.redirect("list-user");
 }
 

@@ -12,40 +12,36 @@
 </head>
 
 <body>
-    <% if(userData){ %>
-        <div class="container position-absolute top-50 start-50 translate-middle">
-            <div class="header">
-                <h1>Edit User</h1>
-            </div>
-            <form action="/update-user" method="POST">
-                <div class="mb-3">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName"
-                        value="<%= userData.firstName %>" placeholder="First Name" autofocus required>
-                </div>
-                <div class="mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName"
-                        value="<%= userData.lastName %>" placeholder="Last Name">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
-                        value="<%= userData.email %>" placeholder="Email address">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-
-                <input type="text" class="form-control" name="id" value="<%= userData.id %>" hidden>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <div class="header">
+            <h1>Edit User</h1>
         </div>
-        <% } else{ %>
-            <h1 class="container position-absolute top-50 start-50 translate-middle">No data</h1>
-            <% } %>
+        <form action="/update-user" method="POST">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName"
+                    value="<%= userData.firstName %>" placeholder="First Name" autofocus required>
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" value="<%= userData.lastName %>"
+                    placeholder="Last Name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                    value="<%= userData.email %>" placeholder="Email address">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+
+            <input type="text" class="form-control" name="id" value="<%= userData.id %>" hidden>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>
