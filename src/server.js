@@ -3,11 +3,19 @@ import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from './routes/web';
 require('dotenv').config();
+var morgan = require('morgan')
 
 let app = express();
 
-//config app
+// check middleware
+app.use((req, res, next)=> {
+    console.log(">>> Run into middleware");
+    console.log(req.method);
+    next();
+});
 
+//config app
+app.use(morgan('combined'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
