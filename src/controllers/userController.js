@@ -18,16 +18,18 @@ let storeUser = async (req, res) => {
 }
 
 let editUser = async (req, res) => {
-    let userId = req.query.id;
+    try {
+        let userId = req.query.id;
 
-    if (userId) {
         let userData = await userService.editUser(userId);
 
         return res.render('users/edit.ejs', {
             userData: userData
         });
-    } else {
-        return res.send('404');
+    } catch (error) {
+        console.log(error);
+
+        return res.render("errors/404.ejs");
     }
 }
 

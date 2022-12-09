@@ -50,7 +50,11 @@ let editUser = async (userId) => {
                 raw: true
             });
 
-            reslove(user);
+            if (!user) {
+                reject([]);
+            } else {
+                reslove(user);
+            }
 
         } catch (e) {
             reject(e);
