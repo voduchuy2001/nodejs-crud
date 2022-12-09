@@ -38,4 +38,5 @@ npx sequelize-cli model:generate --name User --attributes firstName:string,lastN
 npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
 
+#hash password
 npm install --save bcrypt
