@@ -14,8 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 viewEngine(app);
 initWebRoutes(app);
 
+app.use((req, res) => {
+    return res.render("errors/404.ejs");
+});
+
 let port = process.env.PORT || 6969;
-//Port === undefined => port = 6969
 
 app.listen(port, () => {
     //callback
