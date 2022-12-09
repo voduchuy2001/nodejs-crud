@@ -40,3 +40,6 @@ npx sequelize-cli db:seed:all
 
 #hash password
 npm install --save bcrypt
+
+#morgan 
+npm install morgan
